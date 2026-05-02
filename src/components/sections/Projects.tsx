@@ -61,6 +61,9 @@ const spanClasses: Record<NonNullable<ProjectItem["span"]>, string> = {
   tall: "md:row-span-2",
 };
 
+const cardClassName =
+  "glass-card relative flex h-full flex-col justify-between overflow-hidden rounded-[--radius-card] p-6 transition-all duration-300 hover:border-[--color-accent-cyan]/40 hover:-translate-y-1";
+
 function ProjectCard({
   p,
   i,
@@ -70,23 +73,16 @@ function ProjectCard({
   i: number;
   children: ReactNode;
 }) {
-  const motionProps = {
-    initial: { opacity: 0, y: 40, scale: 0.9 },
-    whileInView: { opacity: 1, y: 0, scale: 1 },
-    viewport: { once: true, margin: "-60px" },
-    transition: {
-      duration: 0.7,
-      delay: (i % 4) * 0.08,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-    },
-    className:
-      "glass-card relative flex h-full flex-col justify-between overflow-hidden rounded-[--radius-card] p-6 transition-all duration-300 hover:border-[--color-accent-cyan]/40 hover:-translate-y-1",
-  };
+  const delay = (i % 4) * 0.08;
 
   if (p.url) {
     return (
       <motion.a
-        {...motionProps}
+        initial={{ opacity: 0, y: 40, scale: 0.9 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+        className={cardClassName}
         href={p.url}
         target="_blank"
         rel="noopener noreferrer"
@@ -97,7 +93,17 @@ function ProjectCard({
     );
   }
 
-  return <motion.article {...motionProps}>{children}</motion.article>;
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 40, scale: 0.9 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+      className={cardClassName}
+    >
+      {children}
+    </motion.article>
+  );
 }
 
 export function Projects() {
