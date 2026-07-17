@@ -20,7 +20,7 @@ export function Experience() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <SectionHeading
           eyebrow="Trajectory"
-          title="Seven years, five teams, one craft"
+          title="Seven years, six teams, one craft"
           description="Each role compounded the last — frontend mastery to full-stack ownership to leading teams that ship."
         />
 

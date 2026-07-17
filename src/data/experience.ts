@@ -8,6 +8,17 @@ export type ExperienceItem = {
 
 export const experience: ExperienceItem[] = [
   {
+    company: "Accendia",
+    role: "Lead Full Stack Engineer",
+    period: "2025 – Present",
+    bullets: [
+      "Architected and shipped a production white-label AML/CTF compliance platform for accounting firms, featuring an AI-powered client due diligence agent that automates risk screening and regulatory decisioning at scale.",
+      "Engineered enterprise-grade security and workflows, including JWT authentication with multi-factor step-up, granular role-based access control, third-party integrations, background job orchestration, and full CI and test coverage.",
+      "Tech stack: NestJS, React 19, PostgreSQL, AWS — live at aml.accendia.ai.",
+    ],
+    projects: ["Accendia AML Compliance Platform"],
+  },
+  {
     company: "Tanbits",
     role: "Team Lead (MERN Stack)",
     period: "Jul 2024 – Present",
