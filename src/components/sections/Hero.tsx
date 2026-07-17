@@ -1,6 +1,5 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -11,11 +10,6 @@ import { MagneticButton } from "@/components/ui/MagneticButton";
 import { FloatingShapes } from "@/components/ui/FloatingShapes";
 import { profile } from "@/data/stats";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-
-const ParticleField = dynamic(
-  () => import("@/components/ui/ParticleField").then((m) => m.ParticleField),
-  { ssr: false }
-);
 
 const portrait = {
   src: "/images/waleed-orange.jpg",
@@ -42,7 +36,6 @@ export function Hero() {
     >
       <div className="grid-pattern absolute inset-0 -z-20 opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
       <FloatingShapes />
-      <ParticleField />
 
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-10">
         <motion.div
@@ -67,7 +60,7 @@ export function Hero() {
           >
             <span className="block text-[--color-text-primary]">Waleed Shahzad</span>
             <span className="mt-3 block text-balance">
-              <span className="text-gradient-animated">Full Stack Developer</span>
+              <span className="text-gradient">Full Stack Developer</span>
               <span className="text-[--color-text-primary]"> &amp; Team Lead</span>
             </span>
           </motion.h1>
@@ -187,7 +180,7 @@ export function Hero() {
                   : { y: [0, -10, 0], rotate: [-3, 3, -3] }
               }
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-4 -right-4 hidden rounded-2xl border border-[--color-border-strong] bg-[--color-bg-elevated]/90 px-4 py-3 backdrop-blur md:block"
+              className="absolute -top-4 -right-4 hidden rounded-2xl border border-[--color-border-strong] bg-[--color-bg-elevated]/95 px-4 py-3 will-change-transform md:block"
             >
               <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-[--color-text-subtle]">
                 MERN · AWS · React Native
@@ -203,7 +196,7 @@ export function Hero() {
                 reduced ? undefined : { y: [0, 12, 0], rotate: [3, -3, 3] }
               }
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-[--color-border-strong] bg-[--color-bg-elevated]/90 px-4 py-3 backdrop-blur md:block"
+              className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-[--color-border-strong] bg-[--color-bg-elevated]/95 px-4 py-3 will-change-transform md:block"
             >
               <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-[--color-accent-violet]">
                 Performance
