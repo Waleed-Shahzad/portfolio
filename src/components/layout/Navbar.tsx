@@ -63,8 +63,8 @@ export function Navbar() {
         className={cn(
           "flex w-full max-w-6xl items-center justify-between rounded-full border px-4 py-2.5 transition-all duration-300 sm:px-6",
           scrolled
-            ? "border-[--color-border-strong] bg-[--color-bg-base]/80 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.6)] backdrop-blur-xl"
-            : "border-transparent bg-[--color-bg-base]/40 backdrop-blur"
+            ? "border-[--color-border-strong] bg-[--color-bg-elevated]/95 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.6)]"
+            : "border-transparent bg-[--color-bg-base]/60"
         )}
       >
         <a
@@ -134,7 +134,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-x-4 top-20 z-40 rounded-3xl border border-[--color-border-strong] bg-[--color-bg-elevated]/95 p-3 backdrop-blur-xl md:hidden"
+            className="fixed inset-x-4 top-20 z-40 rounded-3xl border border-[--color-border-strong] bg-[--color-bg-elevated] p-3 md:hidden"
           >
             <ul className="flex flex-col">
               {NAV.map((item, i) => (

@@ -10,7 +10,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative isolate border-t border-[--color-border-subtle] bg-[--color-bg-base]/50 backdrop-blur">
+    <footer className="relative isolate border-t border-[--color-border-subtle] bg-[--color-bg-base]/50">
       <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-10 sm:flex-row sm:items-center lg:px-10">
         <div className="text-sm font-semibold text-[--color-text-primary]">
           {profile.name}

@@ -20,7 +20,7 @@ export function AnimationToggle() {
       transition={{ delay: 1.2, type: "spring", stiffness: 260, damping: 20 }}
       whileHover={{ scale: 1.08 }}
       whileTap={{ scale: 0.92 }}
-      className="group fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-[--color-border-strong] bg-[--color-bg-elevated]/85 text-[--color-text-primary] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.6)] backdrop-blur-md transition-colors hover:border-[--color-accent-cyan]/60 hover:text-[--color-accent-cyan] sm:bottom-6 sm:right-6"
+      className="group fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-[--color-border-strong] bg-[--color-bg-elevated]/85 text-[--color-text-primary] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.6)] transition-colors hover:border-[--color-accent-cyan]/60 hover:text-[--color-accent-cyan] sm:bottom-6 sm:right-6"
     >
       {/* glow ring when active */}
       <span
@@ -63,7 +63,7 @@ export function AnimationToggle() {
       <span className="sr-only">{enabled ? "Animations on" : "Animations off"}</span>
 
       {/* tooltip */}
-      <span className="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-full border border-[--color-border-strong] bg-[--color-bg-elevated]/90 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.2em] text-[--color-text-muted] opacity-0 backdrop-blur transition-opacity duration-200 group-hover:opacity-100">
+      <span className="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-full border border-[--color-border-strong] bg-[--color-bg-elevated]/90 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.2em] text-[--color-text-muted] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
         {enabled ? "Pause motion" : "Resume motion"}
       </span>
     </motion.button>

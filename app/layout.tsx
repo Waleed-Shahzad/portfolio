@@ -4,7 +4,6 @@ import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 import { AnimationProvider } from "@/components/providers/AnimationProvider";
-import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { AmbientBackground } from "@/components/ui/AmbientBackground";
 import { AnimationToggle } from "@/components/ui/AnimationToggle";
@@ -75,11 +74,9 @@ export default function RootLayout({
       <body className="antialiased">
         <AnimationProvider>
           <AmbientBackground />
-          <SmoothScrollProvider>
-            <ScrollProgress />
-            {children}
-            <AnimationToggle />
-          </SmoothScrollProvider>
+          <ScrollProgress />
+          {children}
+          <AnimationToggle />
         </AnimationProvider>
       </body>
     </html>
