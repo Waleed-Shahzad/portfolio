@@ -36,16 +36,24 @@ import {
 } from "react-icons/si";
 import { FaAws, FaDatabase } from "react-icons/fa";
 
+import type { AccentName } from "@/lib/accents";
+
 export type Skill = { name: string; Icon: IconType };
 
 export type SkillGroup = {
   title: string;
+  /** One-line framing shown under the group title on the site. */
+  tagline: string;
+  /** Key into the shared accent palette (see src/lib/accents.ts). */
+  accent: AccentName;
   skills: Skill[];
 };
 
 export const skillGroups: SkillGroup[] = [
   {
     title: "Languages",
+    tagline: "The base layer I write everything in.",
+    accent: "cyan",
     skills: [
       { name: "JavaScript", Icon: SiJavascript },
       { name: "TypeScript", Icon: SiTypescript },
@@ -55,6 +63,8 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: "Frameworks & Libraries",
+    tagline: "Where most of the product work happens.",
+    accent: "violet",
     skills: [
       { name: "React", Icon: SiReact },
       { name: "React Native", Icon: SiReact },
@@ -74,6 +84,8 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: "E-commerce & CMS",
+    tagline: "Storefronts, themes, and merchant APIs.",
+    accent: "pink",
     skills: [
       { name: "Shopify", Icon: SiShopify },
       { name: "Liquid", Icon: SiShopify },
@@ -83,6 +95,8 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: "Databases",
+    tagline: "Modelling, indexing, and query tuning.",
+    accent: "emerald",
     skills: [
       { name: "MongoDB", Icon: SiMongodb },
       { name: "PostgreSQL", Icon: SiPostgresql },
@@ -94,6 +108,8 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: "Cloud & Hosting",
+    tagline: "Shipping it and keeping it up.",
+    accent: "blue",
     skills: [
       { name: "AWS", Icon: FaAws },
       { name: "Heroku", Icon: SiHeroku },
@@ -104,6 +120,8 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: "Tools & Collaboration",
+    tagline: "How the work gets planned and tracked.",
+    accent: "amber",
     skills: [
       { name: "Git", Icon: SiGit },
       { name: "JIRA", Icon: SiJira },

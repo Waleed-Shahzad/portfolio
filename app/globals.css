@@ -170,3 +170,68 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* ── Decorative helpers (About / Skills) ─────────────────────────── */
+
+@keyframes marquee-x {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-x 48s linear infinite;
+  will-change: transform;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+html[data-animations="off"] .marquee-track {
+  animation: none;
+}
+
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.dot-grid {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(148, 163, 184, 0.18) 1px,
+    transparent 0
+  );
+  background-size: 26px 26px;
+}
+
+.hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(148, 163, 184, 0.14) 0 1px,
+    transparent 1px 7px
+  );
+}
+
+/* Diagonal light sweep on hover — pair with a `group` parent */
+.sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.07) 48%,
+    transparent 62%
+  );
+  transform: translate3d(-130%, 0, 0);
+  pointer-events: none;
+}
+.group:hover .sheen::after {
+  transform: translate3d(130%, 0, 0);
+  transition: transform 0.9s var(--ease-out-expo);
+}
+html[data-animations="off"] .sheen::after {
+  display: none;
+}
