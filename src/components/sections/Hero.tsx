@@ -13,7 +13,7 @@ import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 const portrait = {
   src: "/images/waleed-orange.jpg",
-  alt: "Waleed Shahzad — Full Stack Developer",
+  alt: "Waleed Shahzad, Full Stack Developer",
 };
 
 export function Hero() {
@@ -49,7 +49,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-(--color-border-strong) bg-(--color-bg-card) px-4 py-1.5 text-xs font-mono uppercase tracking-[0.2em] text-(--color-accent-cyan)"
           >
             <Sparkles className="h-3.5 w-3.5" />
-            Available for select engagements
+            Open to new opportunities
           </motion.div>
 
           <motion.h1
@@ -73,15 +73,15 @@ export function Hero() {
           >
             <span className="text-(--color-accent-cyan)">{">"}</span>{" "}
             {reduced ? (
-              "Engineering scalable web & mobile products"
+              "Building web & mobile products"
             ) : (
               <TypeAnimation
                 sequence={[
-                  "Engineering scalable web & mobile products",
+                  "Building web & mobile products",
                   1800,
                   "MERN · React Native · AWS",
                   1600,
-                  "Leading teams. Shipping production code.",
+                  "Leading teams and shipping code",
                   1600,
                 ]}
                 speed={55}
@@ -97,10 +97,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="mt-7 max-w-xl text-base leading-relaxed text-(--color-text-muted) md:text-lg"
           >
-            Seven years building scalable web and mobile products across MERN,
-            AWS, and React Native — with a focus on performance, clean
-            architecture, and the small details that make software feel
-            inevitable.
+            Seven years building web and mobile products with MERN, AWS, and
+            React Native. I lead the team, own the architecture, and make sure
+            what ships is fast and secure.
           </motion.p>
 
           <motion.div
@@ -187,7 +186,7 @@ export function Hero() {
                 MERN · AWS · React Native
               </div>
               <div className="mt-1 text-xs text-(--color-text-primary)">
-                7+ yrs shipping production code
+                7+ years in production
               </div>
             </div>
 

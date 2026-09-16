@@ -19,5 +19,5 @@ export const profile = {
   resumePath: "/Waleed_Shahzad_Resume.pdf",
   location: "Lahore, Pakistan",
   summary:
-    "Full Stack Developer with 7 years of experience, a strong foundation in the MERN stack, and a proven track record of building scalable web and mobile applications. Proficient in SQL and NoSQL databases, API integrations, and cloud infrastructure. I lead cross-functional teams, translate complex business requirements into clean technical solutions, and ship secure, maintainable code on time.",
+    "I am a full stack developer with 7 years of experience, mostly on the MERN stack, building web and mobile apps that scale. I work across SQL and NoSQL databases, third-party APIs, and cloud infrastructure on AWS. I lead cross-functional teams, turn business requirements into clear technical plans, and ship secure, maintainable code on schedule.",
 };

@@ -47,7 +47,7 @@ export async function sendContactEmail(
 
   // honeypot triggered — pretend success
   if (parsed.data.company) {
-    return { status: "success", message: "Thanks — message sent." };
+    return { status: "success", message: "Thanks, your message was sent." };
   }
 
   const apiKey = process.env.RESEND_API_KEY;
@@ -74,7 +74,7 @@ export async function sendContactEmail(
       from,
       to,
       replyTo: email,
-      subject: `Portfolio inquiry — ${subject}`,
+      subject: `Portfolio inquiry: ${subject}`,
       html: `
         <div style="font-family:ui-sans-serif,system-ui,sans-serif;background:#f8fafc;padding:24px;color:#0f172a">
           <div style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #e2e8f0">
@@ -108,7 +108,7 @@ export async function sendContactEmail(
 
     return {
       status: "success",
-      message: "Message sent — I'll get back to you within 24 hours.",
+      message: "Message sent. I will get back to you within 24 hours.",
     };
   } catch (err) {
     console.error("[contact] unexpected error:", err);

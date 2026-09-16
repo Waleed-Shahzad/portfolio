@@ -42,8 +42,8 @@ export function Contact() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <SectionHeading
           eyebrow="Let&rsquo;s talk"
-          title="Got something interesting to build?"
-          description="Whether it&rsquo;s a greenfield product, a stalled one that needs rescuing, or a team that needs a steady technical lead — I&rsquo;d love to hear about it."
+          title="Want to work together?"
+          description="Hiring for a full stack or lead role, or need help shipping a product? Send me a message and I will reply within a day."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_minmax(0,_1.15fr)] lg:gap-10">
@@ -55,8 +55,7 @@ export function Contact() {
               transition={{ duration: 0.6 }}
               className="text-base leading-relaxed text-(--color-text-muted) md:text-lg"
             >
-              Pick whichever channel suits you — or use the form. Either way,
-              messages land in the same inbox.
+              Email, phone, LinkedIn, or the form. They all reach me.
             </motion.p>
 
             <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">

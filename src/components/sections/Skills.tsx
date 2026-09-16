@@ -77,9 +77,9 @@ export function Skills() {
 
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <SectionHeading
-          eyebrow="Toolbelt"
-          title="The stack I reach for"
-          description="A curated set of languages, frameworks, and platforms I use day-to-day. Deep on MERN, comfortable across the rest."
+          eyebrow="Skills"
+          title="What I work with"
+          description="The languages, frameworks, and platforms I use day to day. Deepest on MERN, solid across the rest."
         />
 
         {/* Marquee band — a quick pass over everything before the breakdown */}

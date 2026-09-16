@@ -23,26 +23,26 @@ const valueProps = [
   {
     Icon: Code2,
     accent: accents.cyan,
-    title: "Production-grade craft",
-    body: "Clean architectures, typed contracts, and a relentless focus on what runs in production — not just the demo.",
+    title: "Built for production",
+    body: "Clean architecture, typed contracts, and code that is judged by how it runs in production, not in a demo.",
   },
   {
     Icon: Layers,
     accent: accents.violet,
-    title: "Full-stack fluency",
-    body: "Comfortable across the seam — Node/Express APIs, SQL or NoSQL, React/Next on the web, React Native on mobile.",
+    title: "Full stack, end to end",
+    body: "Node and Express APIs, SQL or NoSQL databases, React and Next.js on the web, React Native on mobile.",
   },
   {
     Icon: Rocket,
     accent: accents.pink,
-    title: "Performance obsessed",
-    body: "Profiling, caching strategies, and database tuning. Recently shipped a 40% speed-up on a live SaaS platform.",
+    title: "Performance work",
+    body: "Profiling, caching, and database tuning. Most recently a 40% speed-up on a live SaaS platform.",
   },
   {
     Icon: ShieldCheck,
     accent: accents.emerald,
-    title: "Security & compliance",
-    body: "Regular audits, hardened authentication, and security baked into every PR — not bolted on at the end.",
+    title: "Security and compliance",
+    body: "Regular audits, hardened authentication, and security reviewed in every PR rather than added at the end.",
   },
 ];
 
@@ -133,8 +133,8 @@ export function About() {
         <motion.div style={reduced ? undefined : { y: headingY }}>
           <SectionHeading
             eyebrow="About"
-            title="Engineering products with motion, polish, and intent"
-            description="I lead small, high-trust teams to ship web and mobile applications that hold up under real users. Below is the short version — the long version is on the rest of this page."
+            title="A bit about how I work"
+            description="I lead small teams that ship web and mobile apps for real users. Here is the short version. The rest of the page has the details."
           />
         </motion.div>
 

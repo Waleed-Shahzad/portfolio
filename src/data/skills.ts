@@ -52,7 +52,7 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
   {
     title: "Languages",
-    tagline: "The base layer I write everything in.",
+    tagline: "The languages everything is written in.",
     accent: "cyan",
     skills: [
       { name: "JavaScript", Icon: SiJavascript },
@@ -108,7 +108,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: "Cloud & Hosting",
-    tagline: "Shipping it and keeping it up.",
+    tagline: "Deploying and keeping it running.",
     accent: "blue",
     skills: [
       { name: "AWS", Icon: FaAws },

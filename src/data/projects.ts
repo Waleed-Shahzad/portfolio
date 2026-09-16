@@ -12,7 +12,7 @@ export const projects: ProjectItem[] = [
   {
     name: "Accendia AML Compliance Platform",
     blurb:
-      "Anti-money-laundering AI system and white-label AML/CTF compliance platform for accounting firms — an AI-powered client due diligence agent, risk screening, and regulatory decisioning.",
+      "Anti-money-laundering AI system and white-label AML/CTF compliance platform for accounting firms, with an AI client due diligence agent, risk screening, and regulatory decisioning.",
     stack: ["NestJS", "React", "TypeScript", "PostgreSQL", "AWS", "JWT", "RBAC", "CI/CD"],
     category: "Full Stack",
     accent: "violet",
@@ -22,7 +22,7 @@ export const projects: ProjectItem[] = [
   {
     name: "Sydney Water",
     blurb:
-      "Customer portal for Australia's largest water utility — billing, account management, meter reads, fault reporting, and real-time dam levels for residents, businesses, and trades.",
+      "Customer portal for Australia's largest water utility: billing, account management, meter reads, fault reporting, and real-time dam levels for residents, businesses, and trades.",
     stack: ["React", "Node.js", "TypeScript", "REST APIs", "AWS"],
     category: "Web",
     accent: "cyan",
@@ -31,7 +31,7 @@ export const projects: ProjectItem[] = [
   {
     name: "Pigeon Baby Australia",
     blurb:
-      "Shopify storefront for Pigeon Australia — feeding, skincare, and dental care for newborns through toddlers, with stage-based shopping, a Build-Your-Own-Bottle tool, and AfterPay checkout.",
+      "Shopify storefront for Pigeon Australia covering feeding, skincare, and dental care for newborns through toddlers, with stage-based shopping, a Build-Your-Own-Bottle tool, and AfterPay checkout.",
     stack: ["Shopify", "Liquid", "Storefront API", "JavaScript", "AfterPay"],
     category: "E-commerce",
     accent: "pink",
@@ -58,7 +58,7 @@ export const projects: ProjectItem[] = [
   {
     name: "Byonyks IoT",
     blurb:
-      "Bloodless dialysis automation with patient-doctor management — back-office plus mobile app, real-time over Socket.IO.",
+      "Bloodless dialysis automation with patient and doctor management: a back office plus a mobile app, real time over Socket.IO.",
     stack: ["React Native", "Node.js", "Express", "PostgreSQL", "Redux"],
     category: "Mobile",
     accent: "violet",
@@ -91,7 +91,7 @@ export const projects: ProjectItem[] = [
     url: "https://usabg.com/",
   },
   {
-    name: "Ada — Check Your Health",
+    name: "Ada: Check Your Health",
     blurb:
       "AI symptom checker that surfaces personalized medical information from natural-language patient queries.",
     stack: ["React Native", "Redux", "GraphQL"],
@@ -125,7 +125,7 @@ export const projects: ProjectItem[] = [
     url: "https://kruzee.com/",
   },
   {
-    name: "BlueJay — Engage",
+    name: "BlueJay: Engage",
     blurb:
       "Home physical therapy companion app keeping patients in sync with their PTs through structured exercise plans.",
     stack: ["React Native", "Redux", "React Navigation"],

@@ -115,7 +115,7 @@ export function Projects() {
         <SectionHeading
           eyebrow="Selected work"
           title="Products I&rsquo;ve helped ship"
-          description="A bento of recent and meaningful projects across web and mobile. Hover to peek at the stack."
+          description="Recent projects across web and mobile. Each card lists the stack used."
         />
 
         <div className="mt-16 grid auto-rows-[minmax(220px,_auto)] grid-cols-1 gap-5 md:grid-cols-3">

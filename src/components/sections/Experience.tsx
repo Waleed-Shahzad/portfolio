@@ -24,9 +24,9 @@ export function Experience() {
     <section id="experience" className="relative isolate py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <SectionHeading
-          eyebrow="Trajectory"
-          title="Seven years, six teams, one craft"
-          description="Each role compounded the last — frontend mastery to full-stack ownership to leading teams that ship."
+          eyebrow="Experience"
+          title="Where I have worked"
+          description="Seven years across six companies, from frontend work to full stack ownership to leading teams."
         />
 
         <div ref={ref} className="relative mt-20">

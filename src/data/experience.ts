@@ -14,7 +14,7 @@ export const experience: ExperienceItem[] = [
     bullets: [
       "Architected and shipped a production white-label AML/CTF compliance platform for accounting firms, featuring an AI-powered client due diligence agent that automates risk screening and regulatory decisioning at scale.",
       "Engineered enterprise-grade security and workflows, including JWT authentication with multi-factor step-up, granular role-based access control, third-party integrations, background job orchestration, and full CI and test coverage.",
-      "Tech stack: NestJS, React 19, PostgreSQL, AWS — live at aml.accendia.ai.",
+      "Tech stack: NestJS, React 19, PostgreSQL, AWS. Live at aml.accendia.ai.",
     ],
     projects: ["Accendia AML Compliance Platform", "Pigeon Baby Australia"],
   },
@@ -43,7 +43,7 @@ export const experience: ExperienceItem[] = [
       "Managed development milestones from initial steps through final delivery.",
       "Maintained complex technology infrastructure and collaborated with product team to implement new features.",
     ],
-    projects: ["Bata", "Byonyks IoT", "USA Benefit Group", "Ada — Check Your Health", "LassWho"],
+    projects: ["Bata", "Byonyks IoT", "USA Benefit Group", "Ada: Check Your Health", "LassWho"],
   },
   {
     company: "Hashcrafts",
@@ -54,7 +54,7 @@ export const experience: ExperienceItem[] = [
       "Multi-tasked across several priorities to meet deadlines and expectations.",
       "Collaborated with frontend team to define stories, sprints, and project milestones.",
     ],
-    projects: ["Mayor Pilot", "BlueJay — Engage", "Kruzee"],
+    projects: ["Mayor Pilot", "BlueJay: Engage", "Kruzee"],
   },
   {
     company: "OneClout",

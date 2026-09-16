@@ -125,7 +125,7 @@ export function ContactForm() {
           Send a message
         </h3>
         <p className="mt-1 text-sm text-(--color-text-muted)">
-          Fill the form — it lands directly in my inbox. Replies usually within 24 hours.
+          It goes straight to my inbox. I usually reply within 24 hours.
         </p>
 
         <form ref={formRef} action={action} className="mt-7 space-y-5" noValidate>

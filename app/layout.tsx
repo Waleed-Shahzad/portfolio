@@ -34,11 +34,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://waleed-shahzad.vercel.app"),
   alternates: { canonical: "/" },
   title: {
-    default: "Waleed Shahzad — Full Stack Developer",
+    default: "Waleed Shahzad | Full Stack Developer",
     template: "%s · Waleed Shahzad",
   },
   description:
-    "Waleed Shahzad — Full Stack Developer with 7+ years building scalable MERN web and mobile applications. React, React Native, Node.js, AWS.",
+    "Waleed Shahzad is a full stack developer and team lead with 7+ years building MERN web and mobile apps. React, React Native, Node.js, AWS.",
   keywords: [
     "Waleed Shahzad",
     "Full Stack Developer",
@@ -53,14 +53,14 @@ export const metadata: Metadata = {
   creator: "Waleed Shahzad",
   openGraph: {
     type: "website",
-    title: "Waleed Shahzad — Full Stack Developer",
+    title: "Waleed Shahzad | Full Stack Developer",
     description:
       "Full Stack Developer & Team Lead. 7+ years of MERN, React Native, and cloud infrastructure.",
     siteName: "Waleed Shahzad",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Waleed Shahzad — Full Stack Developer",
+    title: "Waleed Shahzad | Full Stack Developer",
     description:
       "Full Stack Developer & Team Lead. 7+ years of MERN, React Native, and cloud infrastructure.",
   },

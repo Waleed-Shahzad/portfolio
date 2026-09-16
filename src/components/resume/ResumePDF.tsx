@@ -246,7 +246,7 @@ const highlights = [
   "Drove a 40% improvement in application speed across a live SaaS platform through profiling, caching, and DB tuning.",
   "Led MERN engineering teams across enterprise web and mobile rollouts at Tanbits and AppsGenii.",
   "Shipped Shopify storefronts and React-based portals for AU enterprises (Pigeon Australia, Sydney Water).",
-  "Designed cloud-native architectures on AWS — Lambda, DynamoDB, S3, CloudFront, ECS — with CI/CD pipelines.",
+  "Designed cloud-native architectures on AWS (Lambda, DynamoDB, S3, CloudFront, ECS) with CI/CD pipelines.",
   "Architected real-time systems with WebSockets and Socket.IO for healthcare, auctions, and live engagement apps.",
   "Mentored cross-functional teams; ran sprints, design reviews, and ensured security/compliance audit readiness.",
 ];
@@ -276,7 +276,7 @@ const SKILL_COLUMNS = chunk(skillGroups, Math.ceil(skillGroups.length / 2));
 export function ResumePDF() {
   return (
     <Document
-      title={`${profile.name} — Resume`}
+      title={`${profile.name} Resume`}
       author={profile.name}
       subject="Resume"
       keywords="full stack developer, MERN, React, Node.js, Shopify, AWS"
