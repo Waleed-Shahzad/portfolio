@@ -16,7 +16,7 @@ export const experience: ExperienceItem[] = [
       "Engineered enterprise-grade security and workflows, including JWT authentication with multi-factor step-up, granular role-based access control, third-party integrations, background job orchestration, and full CI and test coverage.",
       "Tech stack: NestJS, React 19, PostgreSQL, AWS — live at aml.accendia.ai.",
     ],
-    projects: ["Accendia AML Compliance Platform"],
+    projects: ["Accendia AML Compliance Platform", "Pigeon Baby Australia"],
   },
   {
     company: "Tanbits",
@@ -29,7 +29,7 @@ export const experience: ExperienceItem[] = [
       "Identified and resolved performance bottlenecks, resulting in a 40% improvement in application speed and responsiveness.",
       "Ensuring that all applications comply with security standards and best practices, conducting regular security audits.",
     ],
-    projects: ["Sydney Water", "Pigeon Baby Australia", "Greenbox Storage", "Career Mentor", "Surplex"],
+    projects: ["Sydney Water", "Greenbox Storage", "Career Mentor", "Surplex"],
   },
   {
     company: "AppsGenii Technologies",
