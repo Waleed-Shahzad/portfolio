@@ -53,7 +53,7 @@ export function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6 }}
-              className="text-base leading-relaxed text-[--color-text-muted] md:text-lg"
+              className="text-base leading-relaxed text-(--color-text-muted) md:text-lg"
             >
               Pick whichever channel suits you — or use the form. Either way,
               messages land in the same inbox.
@@ -78,11 +78,13 @@ export function Contact() {
                     rel={
                       c.label === "LinkedIn" ? "noopener noreferrer" : undefined
                     }
-                    className="glass-card group relative flex h-full items-center gap-4 overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[--color-accent-cyan]/40"
+                    className="glass-card group relative flex h-full items-center gap-4 overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-(--color-accent-cyan)/40"
                   >
                     <span
-                      className="absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-15 blur-2xl transition-opacity duration-500 group-hover:opacity-40"
-                      style={{ background: c.accent }}
+                      className="absolute -right-16 -top-16 h-44 w-44 rounded-full opacity-30 transition-opacity duration-500 group-hover:opacity-70"
+                      style={{
+                        background: `radial-gradient(circle, ${c.accent}, transparent 70%)`,
+                      }}
                       aria-hidden
                     />
                     <span
@@ -92,10 +94,10 @@ export function Contact() {
                       <c.Icon className="h-5 w-5" />
                     </span>
                     <div className="relative min-w-0">
-                      <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-[--color-text-subtle]">
+                      <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-(--color-text-subtle)">
                         {c.label}
                       </div>
-                      <div className="mt-1 truncate text-sm text-[--color-text-primary] sm:text-base">
+                      <div className="mt-1 truncate text-sm text-(--color-text-primary) sm:text-base">
                         {c.value}
                       </div>
                     </div>
@@ -109,7 +111,7 @@ export function Contact() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-2 flex items-center gap-2 text-sm text-[--color-text-subtle]"
+              className="mt-2 flex items-center gap-2 text-sm text-(--color-text-subtle)"
             >
               <MapPin className="h-4 w-4" />
               {profile.location}

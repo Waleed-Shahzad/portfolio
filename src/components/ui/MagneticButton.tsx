@@ -27,13 +27,13 @@ export function MagneticButton({
   "aria-label": ariaLabel,
 }: MagneticButtonProps) {
   const base =
-    "relative inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-medium tracking-wide transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-accent-cyan] focus-visible:ring-offset-2 focus-visible:ring-offset-[--color-bg-base]";
+    "relative inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-medium tracking-wide transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--color-accent-cyan) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-bg-base)";
 
   const variants = {
     primary:
-      "text-[--color-bg-base] shadow-[--shadow-glow-cyan] bg-[linear-gradient(120deg,var(--color-accent-cyan),var(--color-accent-violet))] hover:brightness-110",
+      "text-(--color-bg-base) shadow-(--shadow-glow-cyan) bg-[linear-gradient(120deg,var(--color-accent-cyan),var(--color-accent-violet))] hover:brightness-110",
     ghost:
-      "text-[--color-text-primary] border border-[--color-border-strong] hover:border-[--color-accent-cyan] hover:text-[--color-accent-cyan]",
+      "text-(--color-text-primary) border border-(--color-border-strong) hover:border-(--color-accent-cyan) hover:text-(--color-accent-cyan)",
   } as const;
 
   return (

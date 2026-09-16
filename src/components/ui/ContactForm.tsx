@@ -32,10 +32,10 @@ function Field({
   rows = 5,
 }: FieldProps) {
   const inputClasses = cn(
-    "peer w-full resize-none rounded-2xl border bg-[--color-bg-base]/60 px-4 pt-6 pb-2 text-sm text-[--color-text-primary] placeholder-transparent transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[--color-bg-elevated]",
+    "peer w-full resize-none rounded-2xl border bg-(--color-bg-base)/60 px-4 pt-6 pb-2 text-sm text-(--color-text-primary) placeholder-transparent transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-(--color-bg-elevated)",
     error
       ? "border-rose-500/60 focus:border-rose-400 focus:ring-rose-500/40"
-      : "border-[--color-border-strong] focus:border-[--color-accent-cyan] focus:ring-[--color-accent-cyan]/40"
+      : "border-(--color-border-strong) focus:border-(--color-accent-cyan) focus:ring-(--color-accent-cyan)/40"
   );
   const labelClasses = cn(
     "pointer-events-none absolute left-4 top-2 text-[10px] font-mono uppercase tracking-[0.2em] transition-all duration-200",
@@ -43,7 +43,7 @@ function Field({
     "peer-focus:top-2 peer-focus:text-[10px] peer-focus:font-mono peer-focus:uppercase peer-focus:tracking-[0.2em]",
     error
       ? "text-rose-400 peer-placeholder-shown:text-rose-400/70"
-      : "text-[--color-accent-cyan] peer-placeholder-shown:text-[--color-text-subtle] peer-focus:text-[--color-accent-cyan]"
+      : "text-(--color-accent-cyan) peer-placeholder-shown:text-(--color-text-subtle) peer-focus:text-(--color-accent-cyan)"
   );
 
   return (
@@ -113,18 +113,18 @@ export function ContactForm() {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[--color-accent-cyan]/15 blur-3xl"
+        className="pointer-events-none absolute -right-28 -top-28 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.18),transparent_70%)]"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-16 -bottom-16 h-48 w-48 rounded-full bg-[--color-accent-violet]/15 blur-3xl"
+        className="pointer-events-none absolute -left-24 -bottom-24 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.18),transparent_70%)]"
       />
 
       <div className="relative">
-        <h3 className="text-xl font-semibold text-[--color-text-primary] sm:text-2xl">
+        <h3 className="text-xl font-semibold text-(--color-text-primary) sm:text-2xl">
           Send a message
         </h3>
-        <p className="mt-1 text-sm text-[--color-text-muted]">
+        <p className="mt-1 text-sm text-(--color-text-muted)">
           Fill the form — it lands directly in my inbox. Replies usually within 24 hours.
         </p>
 
@@ -200,10 +200,10 @@ export function ContactForm() {
               whileHover={{ scale: pending ? 1 : 1.02 }}
               whileTap={{ scale: pending ? 1 : 0.98 }}
               className={cn(
-                "group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-medium tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-accent-cyan] focus-visible:ring-offset-2 focus-visible:ring-offset-[--color-bg-base]",
+                "group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-medium tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--color-accent-cyan) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-bg-base)",
                 pending
-                  ? "cursor-wait bg-[--color-bg-elevated] text-[--color-text-muted]"
-                  : "bg-[linear-gradient(120deg,var(--color-accent-cyan),var(--color-accent-violet))] text-[--color-bg-base] shadow-[--shadow-glow-cyan] hover:brightness-110"
+                  ? "cursor-wait bg-(--color-bg-elevated) text-(--color-text-muted)"
+                  : "bg-[linear-gradient(120deg,var(--color-accent-cyan),var(--color-accent-violet))] text-(--color-bg-base) shadow-(--shadow-glow-cyan) hover:brightness-110"
               )}
             >
               {pending ? (

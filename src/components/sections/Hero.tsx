@@ -46,7 +46,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 rounded-full border border-[--color-border-strong] bg-[--color-bg-card] px-4 py-1.5 text-xs font-mono uppercase tracking-[0.2em] text-[--color-accent-cyan]"
+            className="inline-flex items-center gap-2 rounded-full border border-(--color-border-strong) bg-(--color-bg-card) px-4 py-1.5 text-xs font-mono uppercase tracking-[0.2em] text-(--color-accent-cyan)"
           >
             <Sparkles className="h-3.5 w-3.5" />
             Available for select engagements
@@ -58,10 +58,10 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="mt-6 text-5xl font-semibold tracking-tight leading-[1.05] sm:text-6xl lg:text-7xl"
           >
-            <span className="block text-[--color-text-primary]">Waleed Shahzad</span>
+            <span className="block text-(--color-text-primary)">Waleed Shahzad</span>
             <span className="mt-3 block text-balance">
               <span className="text-gradient">Full Stack Developer</span>
-              <span className="text-[--color-text-primary]"> &amp; Team Lead</span>
+              <span className="text-(--color-text-primary)"> &amp; Team Lead</span>
             </span>
           </motion.h1>
 
@@ -69,9 +69,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-6 font-mono text-sm sm:text-base text-[--color-text-muted]"
+            className="mt-6 font-mono text-sm sm:text-base text-(--color-text-muted)"
           >
-            <span className="text-[--color-accent-cyan]">{">"}</span>{" "}
+            <span className="text-(--color-accent-cyan)">{">"}</span>{" "}
             {reduced ? (
               "Engineering scalable web & mobile products"
             ) : (
@@ -95,7 +95,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="mt-7 max-w-xl text-base leading-relaxed text-[--color-text-muted] md:text-lg"
+            className="mt-7 max-w-xl text-base leading-relaxed text-(--color-text-muted) md:text-lg"
           >
             Seven years building scalable web and mobile products across MERN,
             AWS, and React Native — with a focus on performance, clean
@@ -128,13 +128,13 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.6 }}
-            className="mt-12 inline-flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[--color-text-subtle] hover:text-[--color-accent-cyan] transition-colors"
+            className="mt-12 inline-flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-(--color-text-subtle) hover:text-(--color-accent-cyan) transition-colors"
             data-cursor="hover"
             aria-label="Scroll down to about section"
           >
             <span>Scroll</span>
-            <span className="relative block h-9 w-[1px] bg-[--color-border-strong] overflow-hidden">
-              <span className="absolute inset-x-0 top-0 h-3 bg-[--color-accent-cyan] animate-scroll-indicator" />
+            <span className="relative block h-9 w-[1px] bg-(--color-border-strong) overflow-hidden">
+              <span className="absolute inset-x-0 top-0 h-3 bg-(--color-accent-cyan) animate-scroll-indicator" />
             </span>
             <ArrowDown className="h-3.5 w-3.5" />
           </motion.a>
@@ -150,8 +150,15 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="relative aspect-[4/5] w-full"
           >
-            <div className="absolute -inset-6 rounded-[2rem] bg-[linear-gradient(120deg,var(--color-accent-cyan),var(--color-accent-violet),var(--color-accent-pink))] opacity-30 blur-2xl" />
-            <div className="relative h-full w-full overflow-hidden rounded-[2rem] border border-[--color-border-strong] bg-[--color-bg-elevated] shadow-2xl shimmer-border">
+            <div
+              aria-hidden
+              className="absolute -inset-16 rounded-full opacity-80"
+              style={{
+                background:
+                  "radial-gradient(ellipse at 50% 45%, rgba(6,182,212,0.26), rgba(168,85,247,0.16) 42%, transparent 72%)",
+              }}
+            />
+            <div className="relative h-full w-full overflow-hidden rounded-[2rem] border border-(--color-border-strong) bg-(--color-bg-elevated) shadow-2xl shimmer-border">
               <Image
                 src={portrait.src}
                 alt={portrait.alt}
@@ -160,51 +167,41 @@ export function Hero() {
                 priority
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[--color-bg-base]/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-(--color-bg-base)/70 via-transparent to-transparent" />
 
               <div className="absolute bottom-5 left-5 right-5">
-                <div className="text-xs font-mono uppercase tracking-[0.2em] text-[--color-accent-cyan]">
+                <div className="text-xs font-mono uppercase tracking-[0.2em] text-(--color-accent-cyan)">
                   Currently
                 </div>
-                <div className="text-base font-medium text-[--color-text-primary]">
+                <div className="text-base font-medium text-(--color-text-primary)">
                   Team Lead @ Tanbits
                 </div>
               </div>
             </div>
 
-            <motion.div
+            <div
               aria-hidden
-              animate={
-                reduced
-                  ? undefined
-                  : { y: [0, -10, 0], rotate: [-3, 3, -3] }
-              }
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-4 -right-4 hidden rounded-2xl border border-[--color-border-strong] bg-[--color-bg-elevated]/95 px-4 py-3 will-change-transform md:block"
+              className="absolute -top-4 -right-4 hidden rounded-2xl border border-(--color-border-strong) bg-(--color-bg-elevated)/95 px-4 py-3 md:block will-change-transform animate-float-badge-a"
             >
-              <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-[--color-text-subtle]">
+              <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-(--color-text-subtle)">
                 MERN · AWS · React Native
               </div>
-              <div className="mt-1 text-xs text-[--color-text-primary]">
+              <div className="mt-1 text-xs text-(--color-text-primary)">
                 7+ yrs shipping production code
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
+            <div
               aria-hidden
-              animate={
-                reduced ? undefined : { y: [0, 12, 0], rotate: [3, -3, 3] }
-              }
-              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-[--color-border-strong] bg-[--color-bg-elevated]/95 px-4 py-3 will-change-transform md:block"
+              className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-(--color-border-strong) bg-(--color-bg-elevated)/95 px-4 py-3 md:block will-change-transform animate-float-badge-b"
             >
-              <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-[--color-accent-violet]">
+              <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-(--color-accent-violet)">
                 Performance
               </div>
-              <div className="mt-1 text-xs text-[--color-text-primary]">
+              <div className="mt-1 text-xs text-(--color-text-primary)">
                 +40% application speed
               </div>
-            </motion.div>
+            </div>
           </motion.div>
         </motion.div>
       </div>

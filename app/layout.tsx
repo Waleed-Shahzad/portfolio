@@ -7,6 +7,7 @@ import { AnimationProvider } from "@/components/providers/AnimationProvider";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { AmbientBackground } from "@/components/ui/AmbientBackground";
 import { AnimationToggle } from "@/components/ui/AnimationToggle";
+import { profile } from "@/data/stats";
 
 const sans = Space_Grotesk({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://waleed-shahzad.vercel.app"),
+  alternates: { canonical: "/" },
   title: {
     default: "Waleed Shahzad — Full Stack Developer",
     template: "%s · Waleed Shahzad",
@@ -64,6 +66,32 @@ export const metadata: Metadata = {
   },
 };
 
+/** Structured data so search results and link previews name the person, not just the page. */
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  jobTitle: profile.title,
+  email: `mailto:${profile.email}`,
+  url: "https://waleed-shahzad.vercel.app",
+  sameAs: [profile.linkedin],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Lahore",
+    addressCountry: "PK",
+  },
+  knowsAbout: [
+    "React",
+    "React Native",
+    "Next.js",
+    "Node.js",
+    "TypeScript",
+    "PostgreSQL",
+    "MongoDB",
+    "AWS",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -72,6 +100,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sans.variable} ${mono.variable}`}>
       <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <AnimationProvider>
           <AmbientBackground />
           <ScrollProgress />

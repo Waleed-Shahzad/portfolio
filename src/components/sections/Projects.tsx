@@ -13,6 +13,7 @@ import {
   SiMongodb,
   SiMui,
   SiMysql,
+  SiNestjs,
   SiNodedotjs,
   SiPostgresql,
   SiReact,
@@ -33,6 +34,7 @@ import { cn } from "@/lib/cn";
 const ICONS: Record<string, IconType> = {
   React: SiReact,
   "React Native": SiReact,
+  NestJS: SiNestjs,
   "Node.js": SiNodedotjs,
   Express: SiExpress,
   MongoDB: SiMongodb,
@@ -62,7 +64,7 @@ const spanClasses: Record<NonNullable<ProjectItem["span"]>, string> = {
 };
 
 const cardClassName =
-  "glass-card relative flex h-full flex-col justify-between overflow-hidden rounded-[--radius-card] p-6 transition-all duration-300 hover:border-[--color-accent-cyan]/40 hover:-translate-y-1";
+  "glass-card relative flex h-full flex-col justify-between overflow-hidden rounded-(--radius-card) p-6 transition-all duration-300 hover:border-(--color-accent-cyan)/40 hover:-translate-y-1";
 
 function ProjectCard({
   p,
@@ -131,7 +133,7 @@ export function Projects() {
                 <ProjectCard p={p} i={i}>
                   <div
                     aria-hidden
-                    className="absolute -right-16 -top-16 h-48 w-48 rounded-full opacity-20 blur-3xl transition-opacity duration-500 group-hover:opacity-50"
+                    className="absolute -right-24 -top-24 h-64 w-64 rounded-full opacity-25 transition-opacity duration-500 group-hover:opacity-60"
                     style={{
                       background: `radial-gradient(circle, ${accent.from}, transparent 70%)`,
                     }}
@@ -140,7 +142,7 @@ export function Projects() {
                   <div className="relative">
                     <div className="flex items-center justify-between">
                       <span
-                        className="inline-flex items-center gap-2 rounded-full border border-[--color-border-subtle] bg-[--color-bg-elevated]/60 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.2em]"
+                        className="inline-flex items-center gap-2 rounded-full border border-(--color-border-subtle) bg-(--color-bg-elevated)/60 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.2em]"
                         style={{ color: accent.from }}
                       >
                         <span
@@ -149,12 +151,12 @@ export function Projects() {
                         />
                         {p.category}
                       </span>
-                      <ArrowUpRight className="h-5 w-5 text-[--color-text-subtle] transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[--color-accent-cyan]" />
+                      <ArrowUpRight className="h-5 w-5 text-(--color-text-subtle) transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-(--color-accent-cyan)" />
                     </div>
-                    <h3 className="mt-5 text-xl font-semibold text-[--color-text-primary] sm:text-2xl">
+                    <h3 className="mt-5 text-xl font-semibold text-(--color-text-primary) sm:text-2xl">
                       {p.name}
                     </h3>
-                    <p className="mt-3 max-w-md text-sm leading-relaxed text-[--color-text-muted]">
+                    <p className="mt-3 max-w-md text-sm leading-relaxed text-(--color-text-muted)">
                       {p.blurb}
                     </p>
                   </div>
@@ -165,7 +167,7 @@ export function Projects() {
                       return (
                         <li
                           key={s}
-                          className="inline-flex items-center gap-1.5 rounded-full border border-[--color-border-subtle] bg-[--color-bg-base]/60 px-2.5 py-1 text-xs text-[--color-text-muted] transition-colors group-hover:border-[--color-border-strong] group-hover:text-[--color-text-primary]"
+                          className="inline-flex items-center gap-1.5 rounded-full border border-(--color-border-subtle) bg-(--color-bg-base)/60 px-2.5 py-1 text-xs text-(--color-text-muted) transition-colors group-hover:border-(--color-border-strong) group-hover:text-(--color-text-primary)"
                           title={s}
                         >
                           {Icon ? (

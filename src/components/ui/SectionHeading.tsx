@@ -32,9 +32,9 @@ export function SectionHeading({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.5 }}
-        className="inline-flex items-center gap-2 rounded-full border border-[--color-border-strong] bg-[--color-bg-card] px-4 py-1 text-xs font-mono uppercase tracking-[0.2em] text-[--color-accent-cyan]"
+        className="inline-flex items-center gap-2 rounded-full border border-(--color-border-strong) bg-(--color-bg-card) px-4 py-1 text-xs font-mono uppercase tracking-[0.2em] text-(--color-accent-cyan)"
       >
-        <span className="block h-1.5 w-1.5 rounded-full bg-[--color-accent-cyan] animate-pulse-glow" />
+        <span className="block h-1.5 w-1.5 rounded-full bg-(--color-accent-cyan) animate-pulse-glow" />
         {eyebrow}
       </motion.span>
       <motion.h2
@@ -42,7 +42,7 @@ export function SectionHeading({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
-        className="mt-5 text-balance text-3xl font-semibold tracking-tight text-[--color-text-primary] sm:text-4xl md:text-5xl"
+        className="mt-5 text-balance text-3xl font-semibold tracking-tight text-(--color-text-primary) sm:text-4xl md:text-5xl"
       >
         {title}
       </motion.h2>
@@ -52,7 +52,7 @@ export function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-          className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[--color-text-muted] md:text-lg"
+          className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-(--color-text-muted) md:text-lg"
         >
           {description}
         </motion.p>

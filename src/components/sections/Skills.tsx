@@ -14,6 +14,7 @@ import {
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { skillGroups, type Skill } from "@/data/skills";
 import { accents, accentVars } from "@/lib/accents";
+import { usePauseOffscreen } from "@/hooks/usePauseOffscreen";
 
 const GROUP_ICONS: Record<string, LucideIcon> = {
   Languages: Braces,
@@ -49,7 +50,7 @@ function TickerRow({ duplicate = false }: { duplicate?: boolean }) {
       {tickerSkills.map(({ name, Icon }) => (
         <span
           key={name}
-          className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-[--color-border-subtle] bg-[--color-bg-elevated]/60 px-3.5 py-1.5 text-xs text-[--color-text-subtle]"
+          className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-(--color-border-subtle) bg-(--color-bg-elevated)/60 px-3.5 py-1.5 text-xs text-(--color-text-subtle)"
         >
           <Icon className="h-3.5 w-3.5 opacity-70" />
           {name}
@@ -60,6 +61,8 @@ function TickerRow({ duplicate = false }: { duplicate?: boolean }) {
 }
 
 export function Skills() {
+  const marqueeRef = usePauseOffscreen<HTMLDivElement>();
+
   return (
     <section id="skills" className="relative isolate py-24 sm:py-32">
       {/* Decorative backdrop */}
@@ -68,8 +71,8 @@ export function Skills() {
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
       >
         <div className="grid-pattern absolute inset-0 opacity-60 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_45%,#000,transparent)]" />
-        <div className="absolute -right-32 top-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.14),transparent_70%)] blur-3xl" />
-        <div className="absolute -left-32 bottom-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.12),transparent_70%)] blur-3xl" />
+        <div className="absolute -right-40 top-16 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.13),transparent_70%)]" />
+        <div className="absolute -left-40 bottom-16 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.11),transparent_70%)]" />
       </div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -85,7 +88,8 @@ export function Skills() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8 }}
-          className="marquee-mask relative mt-14 overflow-hidden border-y border-[--color-border-subtle] py-4"
+          ref={marqueeRef}
+          className="marquee-mask relative mt-14 overflow-hidden border-y border-(--color-border-subtle) py-4"
         >
           <div className="marquee-track gap-3">
             <TickerRow />
@@ -124,7 +128,7 @@ export function Skills() {
                 {/* corner glow */}
                 <span
                   aria-hidden
-                  className="absolute -left-16 -top-16 h-48 w-48 rounded-full opacity-25 blur-3xl transition-opacity duration-500 group-hover:opacity-60"
+                  className="absolute -left-24 -top-24 h-64 w-64 rounded-full opacity-30 transition-opacity duration-500 group-hover:opacity-70"
                   style={{
                     background:
                       "radial-gradient(circle, var(--a-glow), transparent 70%)",
@@ -135,7 +139,7 @@ export function Skills() {
                   className="hatch absolute -bottom-3 -right-3 h-24 w-24 opacity-20 [mask-image:linear-gradient(315deg,#000,transparent)]"
                 />
 
-                <span className="absolute right-6 top-6 font-mono text-[10px] tracking-[0.25em] text-[--color-text-subtle] sm:right-8 sm:top-8">
+                <span className="absolute right-6 top-6 font-mono text-[10px] tracking-[0.25em] text-(--color-text-subtle) sm:right-8 sm:top-8">
                   {String(gi + 1).padStart(2, "0")} /{" "}
                   {String(skillGroups.length).padStart(2, "0")}
                 </span>
@@ -163,10 +167,10 @@ export function Skills() {
                       >
                         {group.title}
                       </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-[--color-text-muted]">
+                      <p className="mt-2 text-sm leading-relaxed text-(--color-text-muted)">
                         {group.tagline}
                       </p>
-                      <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[--color-text-subtle]">
+                      <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-(--color-text-subtle)">
                         {group.skills.length} tools
                       </p>
                     </div>
@@ -181,7 +185,7 @@ export function Skills() {
                       hidden: {},
                       visible: { transition: { staggerChildren: 0.04 } },
                     }}
-                    className="flex flex-wrap content-center gap-2.5 border-[--color-border-subtle] lg:h-full lg:border-l lg:pl-8"
+                    className="flex flex-wrap content-center gap-2.5 border-(--color-border-subtle) lg:h-full lg:border-l lg:pl-8"
                   >
                     {group.skills.map(({ name, Icon }) => (
                       <motion.li
@@ -199,7 +203,7 @@ export function Skills() {
                           },
                         }}
                         whileHover={{ y: -3, scale: 1.04 }}
-                        className="group/chip inline-flex cursor-default items-center gap-2 rounded-full border border-[--color-border-subtle] bg-[--color-bg-elevated]/70 px-4 py-2 text-sm text-[--color-text-muted] transition-colors hover:border-[var(--a-line)] hover:text-[--color-text-primary]"
+                        className="group/chip inline-flex cursor-default items-center gap-2 rounded-full border border-(--color-border-subtle) bg-(--color-bg-elevated)/70 px-4 py-2 text-sm text-(--color-text-muted) transition-colors hover:border-[var(--a-line)] hover:text-(--color-text-primary)"
                         data-cursor="hover"
                       >
                         <Icon
@@ -222,7 +226,7 @@ export function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6 }}
-          className="mt-10 text-center font-mono text-xs uppercase tracking-[0.25em] text-[--color-text-subtle]"
+          className="mt-10 text-center font-mono text-xs uppercase tracking-[0.25em] text-(--color-text-subtle)"
         >
           {skillGroups.length} categories · {totalSkills} technologies
         </motion.p>

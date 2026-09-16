@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, type CSSProperties } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   Code2,
@@ -16,6 +16,7 @@ import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { RevealText } from "@/components/ui/RevealText";
 import { stats, profile } from "@/data/stats";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { usePauseOffscreen } from "@/hooks/usePauseOffscreen";
 import { accents, accentVars, type Accent } from "@/lib/accents";
 
 const valueProps = [
@@ -58,48 +59,48 @@ const facts = [
   { Icon: Sparkles, label: "Focus", value: "Web & mobile products" },
 ];
 
-/** Decorative concentric-orbit mark used in the status panel. */
+/**
+ * Decorative concentric-orbit mark for the status panel. The rings are a static
+ * SVG; the moving dots are plain elements rotated on the compositor, since SVG
+ * <g> transforms repaint the whole graphic every frame.
+ */
+const ORBITERS = [
+  { duration: "16s", reverse: false, left: "67%", top: "50%", size: "4%", color: "var(--color-accent-cyan)" },
+  { duration: "26s", reverse: true, left: "50%", top: "19%", size: "3.5%", color: "var(--color-accent-violet)" },
+  { duration: "38s", reverse: false, left: "5%", top: "50%", size: "3%", color: "var(--color-accent-pink)" },
+];
+
 function OrbitMark() {
   return (
-    <svg
-      viewBox="0 0 200 200"
-      aria-hidden
-      className="h-full w-full overflow-visible"
-    >
-      <defs>
-        <linearGradient id="about-orbit" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="var(--color-accent-cyan)" />
-          <stop offset="100%" stopColor="var(--color-accent-violet)" />
-        </linearGradient>
-      </defs>
+    <div aria-hidden className="relative h-full w-full">
+      <svg viewBox="0 0 200 200" className="absolute inset-0 h-full w-full">
+        <defs>
+          <linearGradient id="about-orbit" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="var(--color-accent-cyan)" />
+            <stop offset="100%" stopColor="var(--color-accent-violet)" />
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#about-orbit)">
+          <circle cx="100" cy="100" r="34" opacity="0.55" />
+          <circle cx="100" cy="100" r="62" opacity="0.35" />
+          <circle cx="100" cy="100" r="90" opacity="0.18" strokeDasharray="4 8" />
+        </g>
+        <circle cx="100" cy="100" r="9" fill="url(#about-orbit)" opacity="0.9" />
+      </svg>
 
-      <g fill="none" stroke="url(#about-orbit)">
-        <circle cx="100" cy="100" r="34" opacity="0.55" />
-        <circle cx="100" cy="100" r="62" opacity="0.35" />
-        <circle cx="100" cy="100" r="90" opacity="0.18" strokeDasharray="4 8" />
-      </g>
-
-      <circle cx="100" cy="100" r="9" fill="url(#about-orbit)" opacity="0.9" />
-
-      <g
-        className="animate-[spin_16s_linear_infinite]"
-        style={{ transformOrigin: "100px 100px", transformBox: "view-box" }}
-      >
-        <circle cx="134" cy="100" r="4" fill="var(--color-accent-cyan)" />
-      </g>
-      <g
-        className="animate-[spin_26s_linear_infinite_reverse]"
-        style={{ transformOrigin: "100px 100px", transformBox: "view-box" }}
-      >
-        <circle cx="100" cy="38" r="3.5" fill="var(--color-accent-violet)" />
-      </g>
-      <g
-        className="animate-[spin_38s_linear_infinite]"
-        style={{ transformOrigin: "100px 100px", transformBox: "view-box" }}
-      >
-        <circle cx="10" cy="100" r="3" fill="var(--color-accent-pink)" />
-      </g>
-    </svg>
+      {ORBITERS.map((o) => (
+        <span
+          key={o.duration}
+          className={`${o.reverse ? "orbit-spin-reverse" : "orbit-spin"} absolute inset-0`}
+          style={{ "--orbit-duration": o.duration } as CSSProperties}
+        >
+          <span
+            className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full"
+            style={{ left: o.left, top: o.top, width: o.size, height: o.size, background: o.color }}
+          />
+        </span>
+      ))}
+    </div>
   );
 }
 
@@ -110,8 +111,10 @@ export function About() {
     target: ref,
     offset: ["start end", "end start"],
   });
+  const orbitRef = usePauseOffscreen<HTMLDivElement>();
   const headingY = useTransform(scrollYProgress, [0, 1], [60, -60]);
-  const statsScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.85, 1, 0.95]);
+  // translate only — a per-frame scale forced the text in the stat tiles to re-rasterize
+  const statsY = useTransform(scrollYProgress, [0, 1], [48, -48]);
 
   return (
     <section ref={ref} id="about" className="relative isolate py-24 sm:py-32">
@@ -122,8 +125,8 @@ export function About() {
       >
         <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(6,182,212,0.45),rgba(168,85,247,0.45),transparent)]" />
         <div className="dot-grid absolute inset-0 opacity-40 [mask-image:radial-gradient(ellipse_65%_55%_at_50%_35%,#000,transparent)]" />
-        <div className="absolute -left-24 top-32 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.18),transparent_70%)] blur-2xl" />
-        <div className="absolute -right-24 bottom-16 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.16),transparent_70%)] blur-2xl" />
+        <div className="absolute -left-32 top-24 h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.16),transparent_70%)]" />
+        <div className="absolute -right-32 bottom-8 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.14),transparent_70%)]" />
       </div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -144,7 +147,7 @@ export function About() {
               />
               <RevealText
                 text={profile.summary}
-                className="text-lg leading-relaxed text-[--color-text-muted] md:text-xl"
+                className="text-lg leading-relaxed text-(--color-text-muted) md:text-xl"
               />
             </div>
 
@@ -168,7 +171,7 @@ export function About() {
                   {/* corner glow, revealed on hover */}
                   <span
                     aria-hidden
-                    className="absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
+                    className="absolute -right-16 -top-16 h-44 w-44 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                     style={{
                       background:
                         "radial-gradient(circle, var(--a-glow), transparent 70%)",
@@ -176,7 +179,7 @@ export function About() {
                   />
                   <span className="sheen absolute inset-0 overflow-hidden rounded-2xl" />
 
-                  <span className="absolute right-4 top-4 font-mono text-[10px] tracking-[0.25em] text-[--color-text-subtle]">
+                  <span className="absolute right-4 top-4 font-mono text-[10px] tracking-[0.25em] text-(--color-text-subtle)">
                     {String(i + 1).padStart(2, "0")}
                   </span>
 
@@ -193,10 +196,10 @@ export function About() {
                     <v.Icon className="h-5 w-5" />
                   </div>
 
-                  <h3 className="relative mt-4 text-base font-semibold text-[--color-text-primary]">
+                  <h3 className="relative mt-4 text-base font-semibold text-(--color-text-primary)">
                     {v.title}
                   </h3>
-                  <p className="relative mt-2 text-sm leading-relaxed text-[--color-text-muted]">
+                  <p className="relative mt-2 text-sm leading-relaxed text-(--color-text-muted)">
                     {v.body}
                   </p>
 
@@ -216,7 +219,7 @@ export function About() {
 
           <div className="space-y-4 self-start">
             <motion.div
-              style={reduced ? undefined : { scale: statsScale }}
+              style={reduced ? undefined : { y: statsY }}
               className="grid grid-cols-2 gap-4"
             >
               {stats.map((s, i) => {
@@ -247,7 +250,7 @@ export function About() {
                     />
                     <span
                       aria-hidden
-                      className="absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-20 blur-2xl transition-opacity duration-500 group-hover:opacity-50"
+                      className="absolute -right-14 -top-14 h-48 w-48 rounded-full opacity-25 transition-opacity duration-500 group-hover:opacity-60"
                       style={{
                         background:
                           "radial-gradient(circle, var(--a-glow), transparent 70%)",
@@ -274,7 +277,7 @@ export function About() {
                           className="mt-1.5 h-1 w-5 shrink-0 rounded-full"
                           style={{ background: "var(--a)" }}
                         />
-                        <span className="text-xs font-mono uppercase tracking-[0.2em] text-[--color-text-subtle]">
+                        <span className="text-xs font-mono uppercase tracking-[0.2em] text-(--color-text-subtle)">
                           {s.label}
                         </span>
                       </div>
@@ -290,6 +293,7 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              ref={orbitRef}
               className="group glass-card relative overflow-hidden rounded-2xl p-6"
             >
               <div
@@ -313,12 +317,12 @@ export function About() {
                 <dl className="mt-5 space-y-3.5">
                   {facts.map((f) => (
                     <div key={f.label} className="flex items-start gap-3">
-                      <f.Icon className="mt-0.5 h-4 w-4 shrink-0 text-[--color-accent-cyan]" />
+                      <f.Icon className="mt-0.5 h-4 w-4 shrink-0 text-(--color-accent-cyan)" />
                       <div>
-                        <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-[--color-text-subtle]">
+                        <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-(--color-text-subtle)">
                           {f.label}
                         </dt>
-                        <dd className="text-sm text-[--color-text-primary]">
+                        <dd className="text-sm text-(--color-text-primary)">
                           {f.value}
                         </dd>
                       </div>

@@ -10,13 +10,22 @@ export type ProjectItem = {
 
 export const projects: ProjectItem[] = [
   {
+    name: "Accendia AML Compliance Platform",
+    blurb:
+      "Anti-money-laundering AI system and white-label AML/CTF compliance platform for accounting firms — an AI-powered client due diligence agent, risk screening, and regulatory decisioning.",
+    stack: ["NestJS", "React", "TypeScript", "PostgreSQL", "AWS", "JWT", "RBAC", "CI/CD"],
+    category: "Full Stack",
+    accent: "violet",
+    span: "wide",
+    url: "https://hqb.aml.accendia.ai/",
+  },
+  {
     name: "Sydney Water",
     blurb:
       "Customer portal for Australia's largest water utility — billing, account management, meter reads, fault reporting, and real-time dam levels for residents, businesses, and trades.",
     stack: ["React", "Node.js", "TypeScript", "REST APIs", "AWS"],
     category: "Web",
     accent: "cyan",
-    span: "wide",
     url: "https://www.sydneywater.com.au/",
   },
   {
